@@ -30,14 +30,14 @@ Samples of the training data from both categories look like following:
 
 
 
-![png](output_images/output_8_1.png)
+![png](output_8_1.png)
 
 
     Samples of non-vehicles
 
 
 
-![png](output_images/output_8_3.png)
+![png](output_8_3.png)
 
 
 ### Histogram of oriented gradients
@@ -50,11 +50,11 @@ section of the notebook.
 To get better feeling of how HOG features will look like for cars vs non-cars I have plotted samples
 of both categories with corresponding HOG features:
 
-![png](output_images/output_13_2.png)
+![png](output_13_2.png)
 
 
 
-![png](output_images/output_13_3.png)
+![png](output_13_3.png)
 
 
 
@@ -179,27 +179,27 @@ using several strips of the images and different scale factors.
 I have overlayed identified windows with cars over the test images:
 
 
-![png](output_images/output_31_3.png)
+![png](output_31_3.png)
 
 
 
-![png](output_images/output_31_4.png)
+![png](output_31_4.png)
 
 
 
-![png](output_images/output_31_5.png)
+![png](output_31_5.png)
 
 
 
-![png](output_images/output_31_6.png)
+![png](output_31_6.png)
 
 
 
-![png](output_images/output_31_7.png)
+![png](output_31_7.png)
 
 
 
-![png](output_images/output_31_8.png)
+![png](output_31_8.png)
 
 
 As demonstrated on the images above, the method robust enough to identify all cars on the images, however,
@@ -216,27 +216,27 @@ Application of the method to the test images produced the following results:
 
 
 
-![png](output_images/output_34_3.png)
+![png](output_34_3.png)
 
 
 
-![png](output_images/output_34_4.png)
+![png](output_34_4.png)
 
 
 
-![png](output_images/output_34_5.png)
+![png](output_34_5.png)
 
 
 
-![png](output_images/output_34_6.png)
+![png](output_34_6.png)
 
 
 
-![png](output_images/output_34_7.png)
+![png](output_34_7.png)
 
 
 
-![png](output_images/output_34_8.png)
+![png](output_34_8.png)
 
 
 So, it has successfully removed most of the false positives and nicely combined multiple windows corresponding to the same car.
@@ -256,3 +256,14 @@ The produced video is [project_video_out.mp4](project_video_out.mp4)
 
 ## Discussion
 
+The test of the pipeline on the project video demonstrates several short-comings of the pipeline:
+
+- Higher than expected rate of false positives. Trying to stricten filtering criteria lead to false negatives results.
+- Cars overdriving from behind are not immediately picked up by the pipeline
+- Cars distant enough tend to avoid detection
+
+Having more time to work on the project, I would improve the algorithm using the following approaches:
+
+- Using more training data to improve the classification robustness
+- Improve usage of previous frames to smooth the identification of the cars
+- Investigate completely different approach - using CNNs to identify cars on the images.
